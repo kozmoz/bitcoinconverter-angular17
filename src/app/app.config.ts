@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes)]
 };
