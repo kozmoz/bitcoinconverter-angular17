@@ -16,7 +16,7 @@ import {NgForOf} from "@angular/common";
       <div class="col-sm-9">
         <select id="currencyField" class="form-control" [(ngModel)]="currency" (change)="currencyChanged()">
           <option *ngFor="let c of CURRENCIES" [value]="c">
-            {{ currency_labels[c] }}
+            {{ getCurrencyLabel(c) }}
           </option>
         </select>
       </div>
@@ -28,11 +28,6 @@ export class SelectCurrencyComponent {
   // List of alle currencies available.
   CURRENCIES = [CURRENCY.EUR, CURRENCY.USD];
 
-  currency_labels: { [currency: string]: string } = {
-    EUR: 'Euro €',
-    USD: 'Dollar $'
-  }
-
   @Input()
   currency!: CURRENCY;
 
@@ -42,4 +37,9 @@ export class SelectCurrencyComponent {
   currencyChanged() {
     this.currencyChange.emit(this.currency);
   }
+
+  getCurrencyLabel(c: string) {
+    return c === 'EUR' ? 'Euro €' : 'Dollar $';
+  }
+
 }

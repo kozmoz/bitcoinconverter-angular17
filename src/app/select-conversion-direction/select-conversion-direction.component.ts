@@ -49,7 +49,6 @@ export class SelectConversionDirectionComponent {
   directionChange = new EventEmitter<CONVERT_DIR>();
 
   directionChanged() {
-    console.log('==== directionChanged: ', this.direction);
     this.directionChange.emit(this.direction);
   }
 

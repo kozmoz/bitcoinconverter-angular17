@@ -1,4 +1,7 @@
 // noinspection SpellCheckingInspection
+import {Injectable} from "@angular/core";
+
+// noinspection SpellCheckingInspection
 const API_COINDESK_CURRENT_PRICE = 'https://api.coindesk.com/v1/bpi/currentprice.json';
 
 /**
@@ -32,9 +35,13 @@ interface CoinDeskBpiCurrentPrice {
 /**
  * Moved to separate service, so we can have a promise with return types (when using TypeScript).
  */
+
+@Injectable({
+  providedIn: 'root'
+})
 export class TickerService {
 
-  public static fetchCoinDeskCurrentPrice():Promise<TickerPrice> {
+  public fetchCoinDeskCurrentPrice():Promise<TickerPrice> {
     return fetch(API_COINDESK_CURRENT_PRICE)
       .then((response) => {
         if (response.status !== 200) {

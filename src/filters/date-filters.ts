@@ -1,5 +1,3 @@
-import {DateTimeOptions} from 'vue-i18n';
-
 /**
  * Filter that shows the time as HH:mm.
  *
@@ -17,7 +15,7 @@ export function dateFilter(date: Date, locale: string): string {
   if (!date) {
     return '';
   }
-  const options = {year: 'numeric', month: '2-digit', day: '2-digit'} as DateTimeOptions;
+  const options = {year: 'numeric', month: '2-digit', day: '2-digit'} as Intl.DateTimeFormatOptions;
   if (locale === 'nl') {
     return date.toLocaleDateString('nl-NL', options);
   }
